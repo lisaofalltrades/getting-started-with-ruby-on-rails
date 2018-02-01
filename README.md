@@ -13,11 +13,15 @@ Check out available routes:
 ```bash
 bundle exec rake -T
 ```
+## Migrations
 
-* TERMINAL
+Create users migration file.
+```bash
 rails generate migration CreateUsers
+```
 
-* DB/MIGRATE FOLDER
+In DB/MIGRATE FOLDER
+```ruby
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table users do |t|
@@ -29,24 +33,37 @@ class CreateUsers < ActiveRecord::Migration
     end
   end
 end
+```
 
-* Terminal
+Create User's model
+
+```bash
 be rake generate:model NAME=Users
-
-*APP FOLDER*
+```
+In the **app** folder
+```ruby
 class User < ActiveRecord::Base
   has_many
 end
+```
 
-*Terminal - CREATE & MAKE THE TABLE OR ELSE NOTHING WILL SAVE!
+CREATE & MAKE THE TABLE OR ELSE NOTHING WILL SAVE!
+
+```bash
 bundle exec rake db:drop
 bundle exec rake db:create
 bundle exec rake db:migrate
-bundle exec rake db:seed (if you have a database)
+bundle exec rake db:seed 
+# (if you have a database)
 be shotgun
-*in chrome: localhost:9393
+```
+In the browser navigate to: localhost:9393
 
-*Terminal - if you wanna check out what's in the DB
+
+If you wanna check out what's in the database
+
+```bash
 bundle exec rake console
 Link.connection
 Link
+```
